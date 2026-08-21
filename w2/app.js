@@ -6,15 +6,14 @@ const messageDisplayElement = document.getElementById("total-display");
 const updateButton = document.getElementById("add-item-btn");
 
 //These variables will change as the user interacts with the page.
-let userName = 'Nolan';
-let clickCount = 0;
+let totalCost = 0;
+const itemPrice = 15
 
 // --- Part 2: Define a Function that Reacts to a Click---
 // A function is a block of code designed to perform a particular task.
 
 const handleButtonClick = function(num) {
-    // Increase clickCount by 1 each time the button is clicked
-    //clickCount = clickCount + 1;
+
     clickCount += 1
 
     // Template strings (literal) to easily combine our variables and text into one message
