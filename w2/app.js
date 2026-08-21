@@ -10,7 +10,7 @@ const handleButtonClick = function(num) {
 
     totalCost += itemPrice
 
-    let message = `Your total cost is ${totalCost}`;
+    let message = `Current total: $${totalCost}`;
 
     if(totalCost >= 60) {
         message += ' (Over Budget!)';
