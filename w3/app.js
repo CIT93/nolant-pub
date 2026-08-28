@@ -1,3 +1,6 @@
+import * as orderForm from "./order-handler.js";
+
+
 console.log('Hello from app.js! Your JavaScript is connected and running!');
 const messageDisplayElement = document.getElementById("total-display");
 const addItemButton = document.getElementById("add-item-btn");
@@ -26,5 +29,5 @@ const handleButtonClick = function(num) {
 
 document.addEventListener('DOMContentLoaded', function(){
     console.log('DOM fully loaded and parsed, App is ready for interaction');
-    addItemButton.addEventListener('click', handleButtonClick);
+    //addItemButton.addEventListener('click', handleButtonClick);
 });
