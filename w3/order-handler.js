@@ -10,12 +10,12 @@ const sizeRadios = orderForm.querySelectorAll('input[name="size"]');
 const getSelectedRadioValue = function(sizeRadios){
     for(const radio of sizeRadios){
         if(radio.checked){
-            console.log(`${radio.value} has the attribute of ${radio.checked}`);
             return radio.value;
         }
     }
 }
 
+//Exports Order Inputs as object
 export const getOrderInputs = function (){
     console.log('Getting Form Inputs...');
     return{
@@ -24,5 +24,3 @@ export const getOrderInputs = function (){
         size: getSelectedRadioValue(sizeRadios)
     }
 }
-// TEMP TEST:
-console.log(getOrderInputs());
