@@ -26,6 +26,7 @@ const handleOrderSubmit = function(event){
     time: new Date().toISOString()
     }
     orders.push(newOrder);
+    orderStorage.saveOrders(newOrder);
     console.log(orders);
 }
 
@@ -35,7 +36,7 @@ const init = function(){
     console.log('DOM initialized, ready to go!');
     const loadedOrders = orderStorage.loadOrders();
     if (loadedOrders.length != 0){
-        orders.push(...loadedOrders);
+        orders.push(loadedOrders);
         console.log('Orders Loaded');
     }
 
