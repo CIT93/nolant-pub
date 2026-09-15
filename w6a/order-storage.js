@@ -10,8 +10,8 @@ export const saveOrders = function(orders){
 }
 
 export const loadOrders = function(){
-    localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (LOCAL_STORAGE_KEY){
+    const datastring = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (datastring){
         return JSON.parse(LOCAL_STORAGE_KEY)
     } else {
         return [];
