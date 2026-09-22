@@ -36,7 +36,7 @@ const clearAllData = function(event){
     orders.length = 0;
     orderStorage.deleteStoredData();
     orderForm.reset();
-    orderList.renderOrders();
+    orderList.renderOrders(orders);
 }
 
 
