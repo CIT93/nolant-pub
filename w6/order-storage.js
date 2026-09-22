@@ -17,3 +17,8 @@ export const loadOrders = function(){
         return [];
     }
 }
+
+
+export const deleteStoredData = function(){
+    localStorage.removeItem(LOCAL_STORAGE_KEY);
+}

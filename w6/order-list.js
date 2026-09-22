@@ -11,7 +11,7 @@ export const renderOrders = function(orders) {
         <td>${new Date().toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: 'numeric'})}</td>
         <td>${order.quantity}</td>
         <td>${order.size}</td>
-        <td>${order.total}</td>`
+        <td>${order.total.price}</td>`
         table.appendChild(row);
     }
 }
