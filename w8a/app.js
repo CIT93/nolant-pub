@@ -117,11 +117,8 @@ const performClearAllData = function () {
 // Clears external module data, resets the form, and sets household members back to default.
 const handleClearForm = function () {
     formHandler.clearForm();
-    resultsDisplay.hideResults();
+    resultsDisplay.hideResults;
     resetAllUIStates();
-    //carbonFootprintForm.reset();
-    //householdMembersInput.value = 1;
-    //console.log('Clear button clicked');
 }
 // Handles the "Delete" action for a specific entry.
 const handleDeleteEntry = function (id) {
