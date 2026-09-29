@@ -12,11 +12,11 @@ const foodDietFootprintDisplay = resultsContainer.querySelector('#foodDietFootpr
 const foodPackagingFootprintDisplay = resultsContainer.querySelector('#foodPackagingFootprint');
 
 export const displayResults = function(results){
-    totalFootprintDisplay.textContent = `${results.totalFootprint.toFixed(0)} Points`;
+    totalFootprintDisplay = `${results.totalFootprint.toFixed(0)} Points`;
     householdFootprintDisplay.textContent = `Household Size: ${results.householdFootprint.toFixed(0)} Points`;
     homeSizeFootprintDisplay.textContent = `House Size: ${results.homeSizeFootprint.toFixed(0)} Points`;
     foodDietFootprintDisplay.textContent = `Food Diet: ${results.dietTypeFootprint.toFixed(0)} Points`;
-    foodPackagingFootprintDisplay.textContent = `Food Packaging: ${results.dietTypeFootprint.toFixed(0)} Points`;
+    foodPackagingFootprintDisplay.textContent = `Food Packaging: ${results.foodPackagingFootprint.toFixed(0)} Points`;
 
     // Make the entire results section visible
     resultsContainer.style.display = 'block';
