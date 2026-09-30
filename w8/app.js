@@ -22,6 +22,7 @@ const handleOrderSubmit = function(event){
     }*/
    //priceSummary.displaySummary(formData, total);
     const newOrder = {
+        id: Date.now().toString(),
     ...formData,
     total,
     time: new Date().toISOString()
