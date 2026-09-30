@@ -12,7 +12,7 @@ const orderSummary = document.getElementById('order-summary');
 const orders = [];
 
 //handle submit
-const handleOrderSubmit = function(event){
+const handleOrderSubmit = function (event) {
     event.preventDefault();
     const formData = orderHandler.getOrderInputs();
     const total = priceCalculator.calculateTotal(formData);
@@ -20,35 +20,50 @@ const handleOrderSubmit = function(event){
     /*if (formData.isWrapped){
         orderSummary.textContent += ` They will be gift wrapped. :)`;
     }*/
-   //priceSummary.displaySummary(formData, total);
+    //priceSummary.displaySummary(formData, total);
     const newOrder = {
         id: Date.now().toString(),
-    ...formData,
-    total,
-    time: new Date().toISOString()
+        ...formData,
+        total,
+        time: new Date().toISOString()
     }
     orders.push(newOrder);
     orderStorage.saveOrders(orders);
-    orderList.renderOrders(orders);
+    orderList.renderOrders(orders, {
+        onDelete: handleDelete,
+        onEdit: handleEdit
+    });
     console.log(orders);
 }
 
-const clearAllData = function(event){
+const clearAllData = function (event) {
     orders.length = 0;
     orderStorage.deleteStoredData();
     orderForm.reset();
-    orderList.renderOrders(orders);
+    orderList.renderOrders(orders, {
+        onDelete: handleDelete,
+        onEdit: handleEdit
+    });
 }
 
+const handleDelete = function (id) {
+    console.log("App.js: Requesting delete for order", id);
+};
 
+const handleEdit = function (id) {
+    console.log("App.js: Requesting edit for order", id);
+};
 
-const init = function(){
+const init = function () {
     console.log('DOM initialized, ready to go!');
     const loadedOrders = orderStorage.loadOrders();
-    if (loadedOrders.length != 0){
+    if (loadedOrders.length != 0) {
         orders.push(...loadedOrders);
         console.log('Orders Loaded');
-        orderList.renderOrders(orders);
+        orderList.renderOrders(orders, {
+            onDelete: handleDelete,
+            onEdit: handleEdit
+        });
     }
 
     orderForm.addEventListener('submit', handleOrderSubmit);

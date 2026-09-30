@@ -1,4 +1,5 @@
 const table = document.getElementById('order-table-body')
+let moduleCallbacks = {};
 table.addEventListener('click', function(event) {
     const target = event.target;
     
@@ -9,10 +10,14 @@ table.addEventListener('click', function(event) {
     // there will be no ID. So we stop the function immediately.
     if (!id) return;
 
-    // 3. Temporary Test: Log the ID to prove it works!
-    console.log("Clicked button with ID:", id); 
+    if(target.classList.contains('delete-btn') && moduleCallbacks.onDelete){
+        moduleCallbacks.onDelete(id);
+    } else if(target.classList.contains('edit-btn') && moduleCallbacks.onEdit){
+        moduleCallbacks.onEdit(id);
+    }
 });
-export const renderOrders = function (orders) {
+export const renderOrders = function (orders, callbacks) {
+    moduleCallbacks = callbacks;
     table.innerHTML = '';
     if (orders.length === 0) {
         return;
