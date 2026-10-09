@@ -26,7 +26,7 @@ export const renderOrders = function (orders, callbacks) {
         const row = document.createElement('tr');
         row.dataset.id = order.id;
         row.innerHTML = `
-        <td>${order.time.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</td>
+        <td>${formatDateForDisplay(order.time)}</td>
         <td>${order.quantity}</td>
         <td>${order.size}</td>
         <td>${order.total.price}</td>
@@ -37,3 +37,11 @@ export const renderOrders = function (orders, callbacks) {
         table.appendChild(row);
     }
 }
+
+const formatDateForDisplay = function (timestamp) {
+    const date = new Date(timestamp);
+    // @returns {string} Formatted date string.
+    return date.toLocaleDateString('en-US', {
+        year: 'numeric', month: 'short', day: 'numeric'
+    });
+};
