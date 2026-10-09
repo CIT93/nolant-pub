@@ -6,8 +6,6 @@ import * as orderStorage from "./order-storage.js";
 //reference form
 const orderForm = document.getElementById('order-form');
 const clearBtn = document.getElementById('clear-btn');
-//reference order summary
-const orderSummary = document.getElementById('order-summary');
 
 const orders = [];
 

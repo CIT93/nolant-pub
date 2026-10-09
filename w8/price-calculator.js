@@ -3,9 +3,9 @@ const wrapPrice = 2;
 
 export const calculateTotal = function(orderData){
     let totalPrice = 0;
-    totalPrice = orderData.quantity * 15;
+    totalPrice = orderData.quantity * shirtPrice;
     if(orderData.isWrapped == true){
-        totalPrice += 2;
+        totalPrice += wrapPrice;
     }
     return{
         price: totalPrice
